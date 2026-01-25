@@ -9,14 +9,14 @@ import tkinter as tk
 import func
 
 
-kick_shot = cv2.VideoCapture('')
-ret, img = cap.read()
+kick_shot = cv2.VideoCapture('freekick.mp4')
+ret, img = kick_shot.read()
 func.display_cv2_img(img)
-cap.release()
+kick_shot.release()
 #Shot of the freekick's foot moment of impact
 
-
-abels = pd.read_csv('',
+'''
+labels = pd.read_csv('',
                      low_memory=False)
 video_labels = (
     labels.query('videoName == ""').reset_index(drop=True).copy()
@@ -25,7 +25,7 @@ video_labels["video_frame"] = (video_labels["frameIndex"] * 11.9).round().astype
 
 
 
-'''
+
 Next task:
     -record clips of freekicks next time playing football
     -Test if I can annotate and pull images from clip
@@ -35,3 +35,4 @@ Next task:
 Goal: 
     -display the video on a window with tkinter
     -Calculate angles of freekicks(foot, ball, runup)
+'''
